@@ -12,10 +12,42 @@
             <li>Color of the wheels : <strong>{{colors.wheels}}</strong></li>
         </ul>
     </div>
+
+    <h5>Editing of object</h5>
+    <button class="btn btn-danger" (click)="showEdit()">Edit</button>
+    <form *ngIf="isEdit == true">
+        <div class="form-group">
+            <input type="text"  placeholder="Name of car" class="form-control"
+            [(ngModel)]="name" name="Name">
+            <input type="text"  placeholder="Car model" class="form-control"
+            [(ngModel)]="model" name="Model">
+            <input type="number"  placeholder="Speed" class="form-control"
+            [(ngModel)]="speed" name="Speed">
+            <input type="text"  placeholder="Car color" class="form-control"
+            [(ngModel)]="colors.car" name="carColor">
+            <input type="text" placeholder="Salon color" class="form-control"
+            [(ngModel)]="colors.salon" name="salonColor">
+            <input type="text" placeholder="Wheels color" class="form-control"
+            [(ngModel)]="colors.wheels" name="wheelsColor">
+        </div>
+    </form>
+
     <h5>The car opportunities</h5>
+    <form (submit)="addOpt(option.value)">
+        <div class="form-group">
+            <label for="option">Adding a new opportunity</label>
+            <input type="text" id="option" placeholder="Enter the option" class = "form-control" #option>
+            <button type="submit" class="btn btn-outline-success">Add</button>
+        </div>
+    </form>
+    <br>
     <div class="alert alert-warning">
         <ul>
-            <li *ngFor = "let opt of options">{{opt}}</li>
+            <li *ngFor = "let opt of options">
+                {{opt}}
+                <button class="btn btn-warning btn-sm"
+                (click)="deleteOpt(opt)">x</button>
+            </li>
         </ul>
     </div>
     <h5>Choose the car</h5>
