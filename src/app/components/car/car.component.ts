@@ -18,12 +18,12 @@ export class CarComponent implements OnInit {
   ngOnInit() {
     this.name = 'Audi';
     this.speed = 220;
-    this.model = 'RS6'
+    this.model = 'RS6';
     this.colors = {
       car: 'White',
       salon: 'Black',
       wheels: 'Silver'
-    }
+    }; 
     this.options = ["ABS", "Autopilot", "Auto parking"];
   }
 
@@ -79,7 +79,7 @@ export class CarComponent implements OnInit {
         car: 'Black',
         salon: 'White',
         wheels: 'Black'
-      }
+      } 
       this.options = ["Leather salon", "Launch control", "ABS"];
     }
   }
